@@ -1,0 +1,166 @@
+/* Style principal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+}
+
+/* Header avec les boutons */
+/* Positionnement des boutons à gauche */
+.header {
+  position: fixed;
+  top: 20px; /* Positionné légèrement du haut de la page */
+  left: 10px; /* Positionné à 10px du bord gauche de la page */
+  z-index: 10;
+  display: flex;
+  flex-direction: column; /* Pour empiler les boutons verticalement */
+}
+
+/* Style des boutons */
+.header button {
+  margin-bottom: 10px; /* Espace entre les boutons */
+  padding: 8px 15px; /* Taille réduite des boutons */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; /* Taille de police réduite */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+  background-color: #45a049;
+}
+
+/* Facture container */
+.facture-container, .historique-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  margin-top: 80px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+
+/* Créancier style */
+.creancier {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.creancier img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.creancier button {
+  margin-left: auto;
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.creancier button:hover {
+  background-color: #45a049;
+}
+
+/* Modal style */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 90%;
+  max-width: 600px;
+  background-color: #f0f0f0; /* Fond gris clair pour le modal */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ccc; /* Gris pour l'en-tête */
+  color: white;
+  font-size: 18px;
+}
+
+.modal-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 20px;
+  color: #333;
+  font-size: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+  background-color: #f0f0f0; /* Fond gris clair pour le footer */
+}
+
+.modal-footer button {
+  padding: 8px 15px;
+  background-color: #f0f0f0; /* Même fond gris clair que le modal */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.modal-footer button[type="submit"] {
+  background-color: #4caf50; /* Vert pour le bouton "Valider" */
+}
+
+.modal-footer button[type="button"] {
+  background-color: #f44336; /* Rouge pour le bouton "Annuler" */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}

@@ -1,0 +1,50 @@
+<div class="container">
+  <!-- Header avec les boutons -->
+  <div class="header">
+    <button (click)="showFacture()">Facture</button>
+    <button (click)="showHistorique()">Historique</button>
+  </div>
+
+  <!-- Section Facture -->
+  <div *ngIf="isFactureVisible" class="facture-container">
+    <h2>Liste des créanciers</h2>
+    <div *ngFor="let creancier of creanciers" class="creancier">
+      <img [src]="getImageUrl(creancier.nom)" alt="Logo Créancier" />
+      <div>
+        <h3>{{ creancier.nom }}</h3>
+        <p>{{ creancier.service }}</p>
+      </div>
+      <button (click)="openPayForm(creancier.nom)">Payer</button>
+    </div>
+  </div>
+
+  <!-- Section Historique -->
+  <div *ngIf="isHistoriqueVisible" class="historique-container">
+    <h2>Historique des paiements</h2>
+    <div *ngFor="let paiement of getHistoriqueForUser()">
+      <p>{{ paiement.nom }} {{ paiement.prenom }} a payé {{ paiement.montant }}€ à {{ paiement.creancier }} le {{ paiement.date }}</p>
+    </div>
+  </div>
+
+  <!-- Modal pour effectuer un paiement -->
+  <div *ngIf="isPayFormVisible" class="modal-overlay" (click)="closePayForm()"></div>
+  <div *ngIf="isPayFormVisible" class="modal">
+    <div class="modal-header">
+      <span>Effectuer un paiement</span>
+      <button class="close-btn" (click)="closePayForm()">&times;</button>
+    </div>
+    <div class="modal-content">
+      <h3>Payer {{ selectedCreancierNom }}</h3>
+      <form (submit)="submitPayForm()">
+        <div class="form-group">
+          <label for="montant">Montant (en €)</label>
+          <input type="number" [(ngModel)]="montant" name="montant" id="montant" required class="form-input" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="closePayForm()">Annuler</button>
+          <button type="submit">Valider</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
